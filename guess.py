@@ -8,7 +8,7 @@ def getNumber():
             getTempNumber = int(getNumber)
         except ValueError:                      
             print('"' + getNumber + '"' + ' - не является числом!')
-            print('Надо ввести число что бы угадать!')
+            print('Надо ввести число цифрами что бы угадать!')
         else:                                   
             break
     return int(getNumber)                   
@@ -24,11 +24,13 @@ print('Попробуй угадать!')
 for guessesTaken in range(6):
 	guess = getNumber()
 	if guess < number:
-			print('Твое число слишком маленькое.\nПопробуй ещё раз!')
+		print('Твое число слишком маленькое.')
 	if guess > number:
-			print('Твое число слишком большое.\nПопробуй ещё раз!')
+		print('Твое число слишком большое.')
 	if guess == number:
-			break
+		break
+	if guessesTaken < 5:
+		print('Попробуй ещё раз!')
 
 if guess == number:
 	guessesTaken = guessesTaken + 1
