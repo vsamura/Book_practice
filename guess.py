@@ -1,45 +1,45 @@
 # Это игра по угадыванию чисел
 import random
 
-def getNumber():
+def get_number():
     while type:
-        getNumber = input()                 
+        get_number = input()                 
         try:                                   
-            getTempNumber = int(getNumber)
+            get_temp_number = int(get_number)
         except ValueError:                      
-            print('"' + getNumber + '"' + ' - не является числом!')
+            print('"' + get_number + '"' + ' - не является числом!')
             print('Надо ввести число цифрами что бы угадать!')
         else:                                   
             break
-    return int(getNumber)                   
+    return int(get_number)                   
 
 
-guessesTaken = 0
+guesses_taken = 0
 print('Привет! Как тебя зовут?')
-myName = input()
+my_name = input()
 number = random.randint(1, 100)
-print('Что ж, ' + myName + ', я загадываю число от 1 до 100.')
+print('Что ж, ' + my_name + ', я загадываю число от 1 до 100.')
 print('Попробуй угадать!')
 
-for guessesTaken in range(6):
-	guess = getNumber()
+for guesses_taken in range(6):
+	guess = get_number()
 	if guess < number:
 		print('Твое число слишком маленькое.')
 	if guess > number:
 		print('Твое число слишком большое.')
 	if guess == number:
 		break
-	if guessesTaken < 5:
+	if guesses_taken < 5:
 		print('Попробуй ещё раз!')
 
 if guess == number:
-	guessesTaken = guessesTaken + 1
+	guesses_taken = guesses_taken + 1
 	declension = 'попытки!'
-	if guessesTaken == 1:
+	if guesses_taken == 1:
 		declension = 'попытку!'
-	elif guessesTaken > 4:
+	elif guesses_taken > 4:
 		declension = 'попыток!'
-	print('Отлично, ' + myName + '!')
-	print('Ты справился за ' + str(guessesTaken) + ' ' + declension)
+	print('Отлично, ' + my_name + '!')
+	print('Ты справился за ' + str(guesses_taken) + ' ' + declension)
 else:
 	print('Увы, но попытки кончились!\n Я загадал число ' + str(number) + '.')
